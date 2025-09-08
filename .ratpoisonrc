@@ -1,0 +1,19 @@
+# Ratpoison Configuration File
+
+#Banish mouse
+banish
+
+#Set escape key to Windows key
+escape Super_L
+
+#Set ratpoison message duration
+msgwait 10
+
+#Bind f - open Firefox
+bind f exec firefox
+
+#Bind y - open Youtube TV through Firefox
+bind y exec firefox https://youtube.com/tv
+
+#Bind screenshots to F12 (scrot)
+bind F12 exec scrot ~/Screenshots/screenshot-$(date +%Y-%m-%d-%s).png
