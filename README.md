@@ -46,7 +46,7 @@ There are lots of different partition setups that would work, I'm sure, but what
 | ----------- | -------------------- | -------------- | ----------------- | --------------------------------------------- |
 | 1           | BIOS boot            | 1MB            | N/A               | Boot partition to be used by the bootloader   |
 | 2           | Microsoft Basic Data | 4GB            | N/A, use `swapon` | Swap space for Linux                          |
-| 3           | Microsoft Basic Data | 6GB            | `mkfs.ext4`       | Linux root device                             |
+| 3           | Microsoft Basic Data | 7GB            | `mkfs.ext4`       | Linux root device                             |
 | 4           | Microsoft Basic Data | All remaining  | `mkfs.ntfs -f`    | Windows-viewable device for video file storage|
 
 All partitions are labeled as Microsoft Basic Data partitions so `gdisk` can be used (enter `x` to enter the Expert menu, and `a` to set partition attributes) to set attributes that Windows can act on. It's important to set the first three partitions with attibutes **62 (hidden)** and **63 (no auto-mount)** to make Windows ignore those partions; when the Dapvop is plugged in as a storage device, Windows should only see the file storage partition.
@@ -71,7 +71,7 @@ When installing the base packages, you can append any other `pacman` packages th
 - [`pulseaudio pavucontrol`](https://wiki.archlinux.org/title/PulseAudio) adds audio control software
 - [`networkmanager`](https://wiki.archlinux.org/title/NetworkManager) [`ufw`](https://wiki.archlinux.org/title/Uncomplicated_Firewall) are used, in addition to the pre-installed [`iptables`](https://wiki.archlinux.org/title/Iptables), for basic networking
 - [`samba wsdd`](https://wiki.archlinux.org/title/Samba) are used to open the storage partition as a network drive, accessible to anyone (with the right credentials) on the network
-- [`xorg-server`](https://wiki.archlinux.org/title/Xorg) [`xorg-init`](https://wiki.archlinux.org/title/Xinit) [`xterm`](https://wiki.archlinux.org/title/Xterm) are used to configure the display manager
+- [`xorg-server`](https://wiki.archlinux.org/title/Xorg) [`xorg-xinit`](https://wiki.archlinux.org/title/Xinit) [`xterm`](https://wiki.archlinux.org/title/Xterm) are used to configure the display manager
 - [`sudo`](https://wiki.archlinux.org/title/Sudo) allows easier root permission access
 - [`dialog`](https://linux.die.net/man/1/dialog) is what the main menu is written with
 - [`scrot`](https://wiki.archlinux.org/title/Screen_capture#scrot) is a screenshot utility (not necessary, but I found it handy for documentation)
